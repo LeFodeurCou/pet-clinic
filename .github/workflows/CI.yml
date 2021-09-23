@@ -19,4 +19,4 @@ jobs:
         run: |
           set -x
 
-          docker-compose up -d > /dev/null
+          docker-compose build > /dev/null
