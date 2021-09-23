@@ -1,0 +1,29 @@
+version: '3.5'
+
+networks:
+  pet-clinic:
+    driver: bridge
+    name: pet-clinic
+
+services:
+  mysql:
+    image: mysql:5.7.35
+    container_name: mysql
+    volumes:
+      - "/home/nagrarok/dev/docker-mysql-databases/5.7.35:/var/lib/mysql/"
+    environment:
+      MYSQL_ROOT_PASSWORD: "{SQL}#42sqlpass"
+    networks:
+      - pet-clinic
+
+  app:
+    build:
+      context: .
+      args:
+        TARGET: "spring-petclinic/target/spring-petclinic-2.5.0-SNAPSHOT.jar"
+    container_name: pet-clinic
+    ports:
+      - "8080:8080"
+    networks:
+      - pet-clinic
+    

@@ -1,0 +1,28 @@
+#!/bin/bash
+
+docker network create pet-clinic 2> /dev/null;
+
+docker run \
+	-d \
+	--rm \
+	--name mysql \
+	--network pet-clinic \
+	-p 3306:3306 \
+	-v /home/nagrarok/dev/docker-mysql-databases/5.7.35:/var/lib/mysql/ \
+	-e MYSQL_ROOT_PASSWORD="{SQL}#42sqlpass" \
+	mysql:5.7.35
+
+# cd spring-petclinic && ./mvnw clean install package && cd ..
+
+docker build \
+	-t springio/gs-spring-boot-docker \
+	--build-arg TARGET='spring-petclinic/target/spring-petclinic-2.5.0-SNAPSHOT.jar' \
+	--tag pet-clinic .
+
+	# --rm \
+docker run \
+	-d \
+	-p 8080:8080 \
+	--name pet-clinic \
+	--network pet-clinic \
+	pet-clinic
