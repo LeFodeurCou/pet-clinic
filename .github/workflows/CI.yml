@@ -10,10 +10,13 @@ jobs:
       - uses: actions/checkout@v2
       - name: build-pet-clinic-setup-docker
         uses: docker-practice/actions-setup-docker@master
+      - name: build-pet-clinic-pull-docker-compose
+        run: docker-compose pull
+      - name: build-pet-clinic-cache-docker-compose
+        uses: satackey/action-docker-layer-caching@v0.0.11
+          continue-on-error: true
       - name: build-pet-clinic-run-docker-compose
         run: |
           set -x
-
-          docker version
 
           docker-compose up -d
