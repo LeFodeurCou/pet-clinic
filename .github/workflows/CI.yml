@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: build pet-clinic
+      - name: build-pet-clinic
       - uses: docker-practice/actions-setup-docker@master
       - run: |
           set -x
