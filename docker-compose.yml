@@ -19,9 +19,9 @@ services:
   app:
     build:
       context: .
-      image: pet-clinic
       args:
         TARGET: "spring-petclinic/target/spring-petclinic-2.5.0-SNAPSHOT.jar"
+    image: pet-clinic
     container_name: pet-clinic
     ports:
       - "8080:8080"
