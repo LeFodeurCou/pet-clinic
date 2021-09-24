@@ -30,5 +30,7 @@ jobs:
           username: ${{ secrets.JFROG_USER }}
           password: ${{ secrets.JFROG_PASSWORD }}
       -
+        run: docker tag pet-clinic lefodeurcou.jfrog.io/pet-clinic/pet-clinic
+      -
         name: Push 🐳
-        run: docker push https://registry-1.docker.io/pet-clinic
+        run: docker push lefodeurcou.jfrog.io/pet-clinic/pet-clinic
