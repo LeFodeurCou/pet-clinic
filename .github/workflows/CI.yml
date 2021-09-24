@@ -31,4 +31,4 @@ jobs:
           password: ${{ secrets.JFROG_PASSWORD }}
       -
         name: Push 🐳
-        run: docker push lefodeurcou.jfrog.io/pet-clinic/pet-clinic
+        run: docker push pet-clinic

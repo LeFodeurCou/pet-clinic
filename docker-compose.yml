@@ -21,7 +21,7 @@ services:
       context: .
       args:
         TARGET: "spring-petclinic/target/spring-petclinic-2.5.0-SNAPSHOT.jar"
-    image: lefodeurcou.jfrog.io/pet-clinic/pet-clinic
+    image: pet-clinic
     container_name: pet-clinic
     ports:
       - "8080:8080"
