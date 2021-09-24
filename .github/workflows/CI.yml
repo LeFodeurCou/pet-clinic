@@ -27,6 +27,10 @@ jobs:
     needs: build
 
     steps:
+      -
+        name: build-pet-clinic-cache-docker-compose
+        uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
       - 
         name: Login to JFrog 🐸  
         uses: docker/login-action@v1
