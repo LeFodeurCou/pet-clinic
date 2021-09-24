@@ -19,6 +19,7 @@ services:
   app:
     build:
       context: .
+      image: pet-clinic
       args:
         TARGET: "spring-petclinic/target/spring-petclinic-2.5.0-SNAPSHOT.jar"
     container_name: pet-clinic
