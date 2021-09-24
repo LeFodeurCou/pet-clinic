@@ -20,3 +20,12 @@ jobs:
           set -x
 
           docker-compose build > /dev/null
+
+  store:
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
+      - run: docker login lefodeurcou.jfrog.io
+      - run: docker push https://registry-1.docker.io/pet-clinic
