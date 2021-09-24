@@ -20,6 +20,8 @@ jobs:
           set -x
 
           docker-compose build > /dev/null
+
+          docker images
       - 
         name: Login to JFrog 🐸  
         uses: docker/login-action@v1
