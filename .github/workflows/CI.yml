@@ -20,15 +20,6 @@ jobs:
           set -x
 
           docker-compose build > /dev/null
-
-          docker tag pet-clinic lefodeurcou.jfrog.io/pet-clinic/pet-clinic:latest
-
-  store:
-    runs-on: ubuntu-latest
-
-    needs: build
-
-    steps:
       - 
         name: Login to JFrog 🐸  
         uses: docker/login-action@v1
