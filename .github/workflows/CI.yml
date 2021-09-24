@@ -31,4 +31,4 @@ jobs:
           password: ${{ secrets.JFROG_PASSWORD }}
       -
         name: Push 🐳
-        run: docker push pet-clinic
+        run: docker push https://registry-1.docker.io/pet-clinic
