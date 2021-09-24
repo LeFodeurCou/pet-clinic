@@ -27,10 +27,6 @@ jobs:
     needs: build
 
     steps:
-      -
-        name: build-pet-clinic-cache-docker-compose
-        uses: satackey/action-docker-layer-caching@v0.0.11
-        continue-on-error: true
       - 
         name: Login to JFrog 🐸  
         uses: docker/login-action@v1
@@ -40,4 +36,4 @@ jobs:
           password: ${{ secrets.JFROG_PASSWORD }}
       -
         name: Push 🐳
-        run: docker push lefodeurcou.jfrog.io/pet-clinic/pet-clinic
+        run: docker push --all-tags lefodeurcou.jfrog.io/pet-clinic/pet-clinic
