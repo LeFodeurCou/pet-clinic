@@ -21,7 +21,7 @@ jobs:
 
           docker-compose build > /dev/null
 
-          docker tag pet-clinic:latest lefodeurcou.jfrog.io/pet-clinic/pet-clinic:latest
+          docker tag pet-clinic lefodeurcou.jfrog.io/pet-clinic/pet-clinic:latest
 
   store:
     runs-on: ubuntu-latest
