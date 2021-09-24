@@ -21,6 +21,8 @@ jobs:
 
           docker-compose build > /dev/null
 
+          docker tag pet-clinic:latest lefodeurcou.jfrog.io/pet-clinic/pet-clinic:latest
+
   store:
     runs-on: ubuntu-latest
 
@@ -36,4 +38,4 @@ jobs:
           password: ${{ secrets.JFROG_PASSWORD }}
       -
         name: Push 🐳
-        run: docker push --all-tags lefodeurcou.jfrog.io/pet-clinic/pet-clinic
+        run: docker push lefodeurcou.jfrog.io/pet-clinic/pet-clinic
