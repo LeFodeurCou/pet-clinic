@@ -29,8 +29,8 @@ jobs:
     steps:
       - 
         name: Login to JFrog 🐸  
-          uses: docker/login-action@v1
-          with:
-            registry: lefodeurcou.jfrog.io
-            username: ${{ secrets.JFROG_USER }}
-            password: ${{ secrets.JFROG_PASSWORD }}
+        uses: docker/login-action@v1
+        with:
+          registry: lefodeurcou.jfrog.io
+          username: ${{ secrets.JFROG_USER }}
+          password: ${{ secrets.JFROG_PASSWORD }}
