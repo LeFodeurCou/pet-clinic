@@ -24,4 +24,4 @@ jobs:
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
           if_key_exists: replace
       - name: Command over ssh
-        run: ssh -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.KNOWN_HOSTS }} ls
+        run: ssh -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.KNOWN_HOSTS }} /bin/ls <<EOT
