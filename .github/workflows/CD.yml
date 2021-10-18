@@ -23,4 +23,4 @@ jobs:
           name: id_rsa # optional
           known_hosts: ${{ secrets.GROUP }}@${{ secrets.KNOWN_HOSTS }}
       - name: rsync over ssh
-        run: ssh -i ~/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.KNOWN_HOSTS }} ls
+        run: ssh -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.KNOWN_HOSTS }} ls
