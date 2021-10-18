@@ -23,7 +23,7 @@ jobs:
 
           docker images
       - 
-        name: Login to JFrog 🐸  
+        name: 🐸 Login to JFrog 🐸
         uses: docker/login-action@v1
         with:
           registry: lefodeurcou.jfrog.io
