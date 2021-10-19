@@ -8,8 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      KNOWN_HOST: `
 
     steps:
       # - name: 🐸 Login to JFrog 🐸
