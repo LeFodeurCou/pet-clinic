@@ -16,8 +16,6 @@ jobs:
       #     registry: lefodeurcou.jfrog.io
       #     username: ${{ secrets.JFROG_USER }}
       #     password: ${{ secrets.JFROG_PASSWORD }}
-      - name: known_host into ~/.ssh/known_hosts ?
-        run: mkdir -p ~/.ssh/ && touch ~/.ssh/known_hosts && ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
@@ -25,5 +23,7 @@ jobs:
           name: id_rsa # optional
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
           if_key_exists: replace
+      - name: known_host into ~/.ssh/known_hosts ?
+        run: mkdir -p ~/.ssh/ && touch ~/.ssh/known_hosts && ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Command over ssh
         run: ssh -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.KNOWN_HOSTS }} /bin/ls
