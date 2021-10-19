@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - name: 🐸 Login to JFrog 🐸
-      #   uses: docker/login-action@v1
-      #   with:
-      #     registry: lefodeurcou.jfrog.io
-      #     username: ${{ secrets.JFROG_USER }}
-      #     password: ${{ secrets.JFROG_PASSWORD }}
+      - name: 🐸 Login to JFrog 🐸
+        uses: docker/login-action@v1
+        with:
+          registry: lefodeurcou.jfrog.io
+          username: ${{ secrets.JFROG_USER }}
+          password: ${{ secrets.JFROG_PASSWORD }}
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
