@@ -26,4 +26,4 @@ jobs:
       - name: known_host into ~/.ssh/known_hosts ?
         run: mkdir -p ~/.ssh/ && touch ~/.ssh/known_hosts && ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Command over ssh
-        run: ssh -t -t -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.SSH_HOST }} docker pull lefodeurcou.jfrog.io/pet-clinic/pet-clinic
+        run: ssh -t -t -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.SSH_HOST }} docker login -u ${{ JFROG_USER }} -p ${{ JFROG_PASSWORD }} && docker pull lefodeurcou.jfrog.io/pet-clinic/pet-clinic
