@@ -34,6 +34,6 @@ jobs:
       - name: 🐳 Docker pull over ssh 🐳
         run: ssh -t -t -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.SSH_HOST }} docker pull lefodeurcou.jfrog.io/pet-clinic/pet-clinic:$GITHUB_SHA
       - name: 🐳 Docker rename image 🐳
-        run: ssh -t -t -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.SSH_HOST }} docker tag lefodeurcou.jfrog.io/pet-clinic/pet-clinic:$GITHUB_SHA lefodeurcou.jfrog.io/pet-clinic/pet-clinic
+        run: ssh -t -t -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.SSH_HOST }} docker tag lefodeurcou.jfrog.io/pet-clinic/pet-clinic:$GITHUB_SHA lefodeurcou.jfrog.io/pet-clinic/pet-clinic:latest
       - name: 🐳 Restart petclinic service 🐳
         run: ssh -t -t -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.SSH_HOST }} sudo service d-petclinic@group1 restart
