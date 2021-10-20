@@ -16,7 +16,7 @@ jobs:
       - name: Test write env variable
         run: echo "TESTENV=$(pwd)" >> $GITHUB_ENV
       - name: Test read env variable
-        run: echo "${{ env.TESTENV }} --- ${{ $GITHUB_SHA }}"
+        run: echo "${{ env.TESTENV }} --- ${{ env.GITHUB_SHA }}"
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
