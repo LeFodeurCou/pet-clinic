@@ -23,6 +23,6 @@ jobs:
           registry: lefodeurcou.jfrog.io
           username: ${{ secrets.JFROG_USER }}
           password: ${{ secrets.JFROG_PASSWORD }}
-      - run: docker tag pet-clinic lefodeurcou.jfrog.io/pet-clinic/pet-clinic
+      - run: docker tag pet-clinic lefodeurcou.jfrog.io/pet-clinic/pet-clinic-$GITHUB_SHA
       - name: 🐳 Push 🐳
-        run: docker push lefodeurcou.jfrog.io/pet-clinic/pet-clinic
+        run: docker push lefodeurcou.jfrog.io/pet-clinic/pet-clinic-$GITHUB_SHA

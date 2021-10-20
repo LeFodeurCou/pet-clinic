@@ -2,14 +2,13 @@ name: pet-clinic-CD
 
 on:
   push:
-    branches:
-      - master
+    tags: [ ]
   # workflow_run:
   #   workflows: ["CI"]
   #   types: [completed]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,6 +32,8 @@ jobs:
           username: ${{ secrets.JFROG_USER }}
           password: ${{ secrets.JFROG_PASSWORD }}
       - name: 🐳 Docker pull over ssh 🐳
-        run: ssh -t -t -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.SSH_HOST }} docker pull lefodeurcou.jfrog.io/pet-clinic/pet-clinic
-      - name: Restart petclinic service
+        run: ssh -t -t -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.SSH_HOST }} docker pull lefodeurcou.jfrog.io/pet-clinic/pet-clinic-$GITHUB_SHA
+      - name: 🐳 Docker rename image 🐳
+        run: ssh -t -t -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.SSH_HOST }} docker tag lefodeurcou.jfrog.io/pet-clinic/pet-clinic-$GITHUB_SHA lefodeurcou.jfrog.io/pet-clinic/pet-clinic
+      - name: 🐳 Restart petclinic service 🐳
         run: ssh -t -t -i /home/runner/.ssh/id_rsa ${{ secrets.GROUP }}@${{ secrets.SSH_HOST }} sudo service d-petclinic@group1 restart
